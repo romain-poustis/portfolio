@@ -1,25 +1,27 @@
 {
-    "titre": "", 
-    
-    "description": "", 
-    
-    "annee": "", 
-    
+    "titre": "real1",
+    "description": "real1",
+    "annee": "2013",
     "lien": "",
-    
     "images":
-        [
-            "", 
-            "", 
-            "", 
-            "", 
-            ""
-        ],
-    
+            [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
     "tag":
-        [
-            "picto",
-            ""
-        ]
+            [
+                {
+                    "name": "",
+                    "lien": ""
+                },
+                {
+                    "name": "",
+                    "lien": ""
+                }
+
+            ]
 
 }
