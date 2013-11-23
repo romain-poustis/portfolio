@@ -1,0 +1,58 @@
+{
+    "cv": "",
+    "informations":
+            {
+                "phone": "07.81.86.41.11",
+                "email": "romain.poustis@gmail.com",
+                "adresse":
+                        {
+                            "rue": "1185 Route de Noarrieu",
+                            "code_postal": "64300",
+                            "ville": "Castétis",
+                            "pays": "France"
+                        }
+            },
+    "social":
+            [
+                {
+                    "name": "facebook",
+                    "picto": "",
+                    "lien": ""
+                },
+                {
+                    "name": "twitter",
+                    "picto": "",
+                    "lien": ""
+                },
+                {
+                    "name": "linkedin",
+                    "picto": "",
+                    "lien": ""
+                },
+                {
+                    "name": "dribbble",
+                    "picto": "",
+                    "lien": ""
+                },
+                {
+                    "name": "flickr",
+                    "picto": "",
+                    "lien": ""
+                },
+                {
+                    "name": "google+",
+                    "picto": "",
+                    "lien": ""
+                },
+                {
+                    "name": "pinterest",
+                    "picto": "",
+                    "lien": ""
+                },
+                {
+                    "name": "vimeo",
+                    "picto": "",
+                    "lien": ""
+                }
+            ]
+}
