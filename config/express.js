@@ -7,8 +7,11 @@ var express = require('express'),
     helpers = require('view-helpers'),
     config = require('./config');
 
-module.exports = function(app) {
-    app.set('showStackError', true);
+module.exports = function(app, passport, db) {
+    app.set('showStackError', true);    
+    
+    //Prettify HTML
+    app.locals.pretty = true;
 
     //Should be placed before express.static
     app.use(express.compress({
@@ -21,7 +24,6 @@ module.exports = function(app) {
     //Setting the fav icon and static folder
     app.use(express.favicon());
     app.use(express.static(config.root + '/public'));
-    app.use('/lib', express.static(config.root + '/app/components'));
 
     //Don't use logger for test env
     if (process.env.NODE_ENV !== 'test') {
@@ -39,15 +41,16 @@ module.exports = function(app) {
         //cookieParser should be above session
         app.use(express.cookieParser());
 
-        //bodyParser should be above methodOverride
-        app.use(express.bodyParser());
+        // request body parsing middleware should be above methodOverride
+        app.use(express.urlencoded());
+        app.use(express.json());
         app.use(express.methodOverride());
 
         //express/mongo session storage
         app.use(express.session({
             secret: 'MEAN',
             store: new mongoStore({
-                url: config.db,
+                db: db.connection.db,
                 collection: 'sessions'
             })
         }));
@@ -57,6 +60,10 @@ module.exports = function(app) {
 
         //dynamic helpers
         app.use(helpers(config.app.name));
+
+        //use passport session
+        app.use(passport.initialize());
+        app.use(passport.session());
 
         //routes should be at the last
         app.use(app.router);

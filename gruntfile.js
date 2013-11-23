@@ -1,19 +1,6 @@
 module.exports = function(grunt) {
-
-    // show elapsed time at the end
-    require('time-grunt')(grunt);
-    // load all grunt tasks
-    require('load-grunt-tasks')(grunt);
-
     // Project Configuration
-    var yeomanConfig = {
-        app: 'app',
-        pub: 'public',
-        dist: 'dist'
-    };
-
     grunt.initConfig({
-        yeoman: yeomanConfig,
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             jade: {
@@ -43,7 +30,7 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/controllers/**/*.js', 'app/views/**/*.js']
+            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
         },
         nodemon: {
             dev: {
@@ -62,9 +49,8 @@ module.exports = function(grunt) {
                 }
             }
         },
-        
         concurrent: {
-            tasks: ['nodemon', 'watch'],
+            tasks: ['nodemon', 'watch'], 
             options: {
                 logConcurrentOutput: true
             }
@@ -74,22 +60,28 @@ module.exports = function(grunt) {
                 reporter: 'spec'
             },
             src: ['test/**/*.js']
+        },
+        env: {
+            test: {
+                NODE_ENV: 'test'
+            }
         }
     });
 
-    //Load NPM tasks
+    //Load NPM tasks 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-env');
 
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
 
     //Default task(s).
-    grunt.registerTask('default', ['jshint',  'concurrent']);
+    grunt.registerTask('default', ['jshint', 'concurrent']);
 
     //Test task.
-    grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('test', ['env:test', 'mochaTest']);
 };

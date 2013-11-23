@@ -1,6 +1,0 @@
-{
-    "db": "mongodb://localhost/mean-dev",
-    "app": {
-        "name": "portfolio - MEAN - A Modern Stack - Development"
-    }
-}
