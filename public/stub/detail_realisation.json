@@ -1,27 +1,110 @@
-{
-    "titre": "real1",
-    "description": "real1",
-    "annee": "2013",
-    "lien": "",
-    "images":
-            [
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-    "tag":
-            [
-                {
-                    "name": "",
-                    "lien": ""
-                },
-                {
-                    "name": "",
-                    "lien": ""
-                }
+[
+    {
+        "titre": "Life's a game",
+        "description": "Wallpaper\nProjet personnel sur le thème du Retro Gaming",
+        "date": "2012",
+        "lien": "",
+        "images":
+                [
+                    "/img/realisations/Life's_a_game_Wallpaper.png",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+        "tag":
+                [
+                    {
+                        "name": "Print",
+                        "lien": ""
+                    },
+                    {
+                        "name": "",
+                        "lien": ""
+                    }
 
-            ]
+                ]
 
-}
+    },
+    {
+        "titre": "Rainbow Toyz",
+        "description": "Wallpaper\nProjet personnel sur le thème des Art Toys",
+        "date": "2012",
+        "lien": "",
+        "images":
+                [
+                    "/img/realisations/RainbowToyz1_Red.jpg",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+        "tag":
+                [
+                    {
+                        "name": "Print",
+                        "lien": ""
+                    },
+                    {
+                        "name": "",
+                        "lien": ""
+                    }
+
+                ]
+
+    },
+    {
+        "titre": "Logo Le Quartier Makibé",
+        "description": "Réalisation d'un logo pour le groupe de musique Le Quartier Makibé",
+        "date": "2012",
+        "lien": "",
+        "images":
+                [
+                    "/img/realisations/Logo_Makibe.png",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+        "tag":
+                [
+                    {
+                        "name": "Print",
+                        "lien": ""
+                    },
+                    {
+                        "name": "",
+                        "lien": ""
+                    }
+
+                ]
+
+    },
+    {
+        "titre": "Logo Keur d'Afrique",
+        "description": "Réalisation d'un logo pour l'association Keur d'Afrique",
+        "date": "2012",
+        "lien": "",
+        "images":
+                [
+                    "/img/realisations/Logo_Keur_d'Afrique.png",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+        "tag":
+                [
+                    {
+                        "name": "Print",
+                        "lien": ""
+                    },
+                    {
+                        "name": "",
+                        "lien": ""
+                    }
+
+                ]
+
+    }
+]

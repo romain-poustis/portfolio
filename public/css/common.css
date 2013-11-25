@@ -1,9 +1,17 @@
+body {
+    margin:0;
+    padding:0;
+    background: url(/img/bg.jpg) no-repeat center center fixed; 
+    background-size: cover
+}
+
 .navbar .nav>li>a.brand {
     padding-left:20px;
     margin-left:0
 }
 
 .content {
+    color: white;
     margin-top:50px;
     width:100%
 }

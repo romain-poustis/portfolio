@@ -1,4 +1,38 @@
 <section data-ng-controller="IndexController">
-	<h1>{{home.titre}}</h1>
-        <p>{{home.description}}</p>
+    <img src="/img/poustis_romain.png" alt="logo"/>
+    <h1>{{home.titre}}</h1>    
+    <p>{{home.description}}</p>
+</section>
+<div data-ng-controller="DetailRealisationController">
+    <section>
+        <h1>{{real.titre}}</h1>    
+        <p>{{real.description}}</p>
+        <p>{{real.date}}</p>
+        <p><img src="{{real.images}}" alt="{{real.name}}"/></p>
+        <p>{{real.tag.name}}</p>
+    </section>
+
+    <section>
+        <div data-ng-repeat="realisation in realisations">
+            <p>
+                <img data-ng-click="getRealisation($index)" src="{{realisation.imageUrl}}" alt="{{realisation.name}}"/>
+            </p>
+        </div>
+    </section>
+</div>
+
+<section data-ng-controller="ContactController">
+    <p><a href="{{contact.cv}}" target="_blank">Télécharger mon CV</a></p>
+    <p>Romain Poustis</p>
+    <p>{{contact.informations.adresse.rue}}</p>
+    <p>{{contact.informations.adresse.code_postal}} {{contact.informations.adresse.ville}} {{contact.informations.adresse.pays}}</p>
+    <p>{{contact.informations.phone}}</p>
+    <p>{{contact.informations.email}}</p>
+    <div data-ng-repeat="social in contact.social">
+        <p>
+            <a href="{{social.lien}}" target="_blank">
+                <img src="{{social.picto}}" alt="{{social.name}}"/>
+            </a>
+        </p>
+    </div>
 </section>
