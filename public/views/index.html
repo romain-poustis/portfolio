@@ -5,10 +5,12 @@
 </section>
 <div data-ng-controller="DetailRealisationController">
     <section>
+        <a data-ng-show="hasPrevious()" data-ng-click="previousImg()"> <<<<<<<< </a>
+        <a data-ng-show="hasNext()" data-ng-click="nextImg()"> >>>>>>>> </a>
         <h1>{{real.titre}}</h1>    
         <p>{{real.description}}</p>
         <p>{{real.date}}</p>
-        <p><img src="{{real.images}}" alt="{{real.name}}"/></p>
+        <p><img src="{{realImgSelected}}" alt="{{real.titre}}"/></p>
         <p>{{real.tag.name}}</p>
     </section>
 
@@ -28,11 +30,9 @@
     <p>{{contact.informations.adresse.code_postal}} {{contact.informations.adresse.ville}} {{contact.informations.adresse.pays}}</p>
     <p>{{contact.informations.phone}}</p>
     <p>{{contact.informations.email}}</p>
-    <div data-ng-repeat="social in contact.social">
-        <p>
-            <a href="{{social.lien}}" target="_blank">
-                <img src="{{social.picto}}" alt="{{social.name}}"/>
-            </a>
-        </p>
-    </div>
+    <span data-ng-repeat="social in contact.social">
+        <a href="{{social.lien}}" target="_blank">
+            <img src="{{social.picto}}" alt="{{social.name}}"/>
+        </a>
+    </span>
 </section>
