@@ -21,11 +21,13 @@ exports.user = {
 };
 
 /**
- * Article authorizations routing middleware
+ * Realisation authorizations routing middleware
+ * there is only one, but we have to protect the 
+ * REST webservice
  */
-exports.article = {
+exports.realisation = {
     hasAuthorization: function(req, res, next) {
-        if (req.article.user.id != req.user.id) {
+        if (req.realisation.user.id != req.user.id) {
             return res.send(401, 'User is not authorized');
         }
         next();

@@ -1,6 +1,9 @@
 module.exports = function(app, passport, auth) {
-    //User Routes
+    // ----------------------- //
+    //      User Routes
+    // ----------------------- // 
     var users = require('../app/controllers/users');
+    
     app.get('/signin', users.signin);
     app.get('/signup', users.signup);
     app.get('/signout', users.signout);
@@ -19,18 +22,28 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the userId param
     app.param('userId', users.user);
 
-    //Article Routes
-    var articles = require('../app/controllers/articles');
-    app.get('/articles', articles.all);
-    app.post('/articles', auth.requiresLogin, articles.create);
-    app.get('/articles/:articleId', articles.show);
-    app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update);
-    app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy);
 
-    //Finish with setting up the articleId param
-    app.param('articleId', articles.article);
+    // --------------------------- //
+    //      Realisation Routes
+    // --------------------------- //
+    var realisations = require('../app/controllers/realisations');
+    
+    // Realisations CRUD
+    app.post('/realisation', auth.requiresLogin, realisations.create);
+    app.get('/realisations/:realisationId', realisations.show);
+    app.put('/realisations/:realisationId', auth.requiresLogin, auth.realisation.hasAuthorization, realisations.update);
+    app.del('/realisations/:realisationId', auth.requiresLogin, auth.realisation.hasAuthorization, realisations.destroy);
 
-    //Home route
+    // thumbnails
+    app.get('/thumbnails', realisations.all);
+
+    //Finish with setting up the realisationId param
+    app.param('realisationId', realisations.realisation);
+
+
+    // --------------------------- //
+    //      Home Routes
+    // --------------------------- //
     var index = require('../app/controllers/index');
     app.get('/', index.render);
 

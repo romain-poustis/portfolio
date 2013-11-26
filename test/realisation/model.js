@@ -5,15 +5,15 @@ var should = require('should'),
     app = require('../../server'),
     mongoose = require('mongoose'),
     User = mongoose.model('User'),
-    Article = mongoose.model('Article');
+    Realisation = mongoose.model('Realisation');
 
 //Globals
 var user;
-var article;
+var real;
 
 //The tests
 describe('<Unit Test>', function() {
-    describe('Model Article:', function() {
+    describe('Model Realisation:', function() {
         beforeEach(function(done) {
             user = new User({
                 name: 'Full name',
@@ -23,9 +23,12 @@ describe('<Unit Test>', function() {
             });
 
             user.save(function(err) {
-                article = new Article({
-                    title: 'Article Title',
-                    content: 'Article Content',
+                real = new Realisation({
+                    titre: 'Première réalisation',
+                    description: 'Contenu de la réalisation',
+                    lien: '',
+                    images: ['img1','img2'],
+                    tags: [{name: "tag1", lien: "lien1"},{name: "tag2", lien: "lien2"}],    
                     user: user
                 });
 
@@ -35,29 +38,36 @@ describe('<Unit Test>', function() {
 
         describe('Method Save', function() {
             it('should be able to save without problems', function(done) {
-                return article.save(function(err) {
+                return real.save(function(err) {
                     should.not.exist(err);
                     done();
                 });
             });
 
             it('should be able to show an error when try to save without title', function(done) {
-                article.title = '';
+                real.titre = '';
 
-                return article.save(function(err) {
+                return real.save(function(err) {
                     should.exist(err);
+                    done();
+                });
+            });
+            
+            it('should have a realisation', function(done) {
+                Realisation.find({}, function(err, reals){
+                    reals.should.have.length(1);
                     done();
                 });
             });
         });
 
         afterEach(function(done) {
-            Article.remove({});
+            Realisation.remove({});
             User.remove({});
             done();
         });
         after(function(done){
-            Article.remove().exec();
+            Realisation.remove().exec();
             User.remove().exec();
             done();
         });
