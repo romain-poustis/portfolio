@@ -23,14 +23,40 @@
     </section>
 </div>
 
-<section data-ng-controller="ContactController">
-    <p><a href="{{contact.cv}}" target="_blank">Télécharger mon CV</a></p>
-    <p>Romain Poustis</p>
-    <p>{{contact.informations.adresse.rue}}</p>
-    <p>{{contact.informations.adresse.code_postal}} {{contact.informations.adresse.ville}} {{contact.informations.adresse.pays}}</p>
-    <p>{{contact.informations.phone}}</p>
-    <p>{{contact.informations.email}}</p>
-    <span data-ng-repeat="social in contact.social">
+<section data-ng-controller="ContactController" class="container-fluid">
+    <div class="row-fluid">
+        <div class="span6">
+            <p><a href="{{contact.cv}}" target="_blank">Télécharger mon CV</a></p>
+            <p>Romain Poustis</p>
+            <p>{{contact.informations.adresse.rue}}</p>
+            <p>{{contact.informations.adresse.code_postal}} {{contact.informations.adresse.ville}} {{contact.informations.adresse.pays}}</p>
+            <p>{{contact.informations.phone}}</p>
+            <p>{{contact.informations.email}}</p>
+        </div>
+        <div class="span6">
+            <label class="control-label" for="nom"></label>
+            <div class="input-prepend input-block-level input-block-with-prepend">
+                <span class="add-on">
+                    <i class="icon-user"></i>
+                </span>
+                <input class="input-block-level" id="nom" type="text" placeholder="Nom">
+            </div>
+            <label class="control-label" for="email"></label>
+            <div class="input-prepend input-block-level input-block-with-prepend">
+                <span class="add-on">
+                    <i class="icon-envelope"></i>
+                </span>
+                <input class="input-block-level" id="email" type="text" placeholder="Email">
+            </div>
+            <label class="control-label" for="message"></label>
+            <div class="input-block-level margin-textarea">
+                <textarea rows="4" class="input-block-level" id="message" placeholder="Message"></textarea>
+            </div>
+            <label class="control-label" for="envoye"></label>
+            <button class="btn btn-block" id="envoye" type="submit"><i class="icon-ok-sign"></i> Envoyer</button>
+        </div>
+    </div>
+    <span class="social" data-ng-repeat="social in contact.social">
         <a href="{{social.lien}}" target="_blank">
             <img src="{{social.picto}}" alt="{{social.name}}"/>
         </a>
