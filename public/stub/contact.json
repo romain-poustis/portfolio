@@ -1,5 +1,5 @@
 {
-    "cv": "",
+    "cv": "/file/CV_POUSTIS_ROMAIN.pdf",
     "informations":
             {
                 "phone": "07.81.86.41.11",
@@ -16,42 +16,42 @@
             [
                 {
                     "name": "facebook",
-                    "picto": "",
-                    "lien": ""
+                    "picto": "/img/icons/color/fb.png",
+                    "lien": "http://www.facebook.com/romainpoustisportfolio"
                 },
                 {
                     "name": "twitter",
-                    "picto": "",
+                    "picto": "/img/icons/color/twitter.png",
                     "lien": ""
                 },
                 {
                     "name": "linkedin",
-                    "picto": "",
+                    "picto": "/img/icons/color/linkedin.png",
                     "lien": ""
                 },
                 {
                     "name": "dribbble",
-                    "picto": "",
+                    "picto": "/img/icons/color/dribbble.png",
                     "lien": ""
                 },
                 {
                     "name": "flickr",
-                    "picto": "",
+                    "picto": "/img/icons/color/flickr.png",
                     "lien": ""
                 },
                 {
                     "name": "google+",
-                    "picto": "",
+                    "picto": "/img/icons/color/google_plus.png",
                     "lien": ""
                 },
                 {
                     "name": "pinterest",
-                    "picto": "",
+                    "picto": "/img/icons/color/pinterest.png",
                     "lien": ""
                 },
                 {
                     "name": "vimeo",
-                    "picto": "",
+                    "picto": "/img/icons/color/vimeo.png",
                     "lien": ""
                 }
             ]

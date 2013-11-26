@@ -1,4 +1,88 @@
 <section data-ng-controller="IndexController">
-	<h1>{{home.titre}}</h1>
-        <p>{{home.description}}</p>
+    <img src="/img/poustis_romain.png" alt="logo"/>
+    <h1>{{home.titre}}</h1>    
+    <p>{{home.description}}</p>
+</section>
+
+
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">…</div>
+    <div class="item">…</div>
+    <div class="item">…</div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+
+<div data-ng-controller="DetailRealisationController">
+    <section>
+        <a data-ng-show="hasPrevious()" data-ng-click="previousImg()"> <<<<<<<< </a>
+        <a data-ng-show="hasNext()" data-ng-click="nextImg()"> >>>>>>>> </a>
+        <h1>{{real.titre}}</h1>    
+        <p>{{real.description}}</p>
+        <p>{{real.date}}</p>
+        <p><img src="{{realImgSelected}}" alt="{{real.titre}}"/></p>
+        <p>{{real.tag.name}}</p>
+    </section>
+
+    <section>
+        <div data-ng-repeat="realisation in realisations">
+            <p>
+                <img data-ng-click="getRealisation($index)" src="{{realisation.imageUrl}}" alt="{{realisation.name}}"/>
+            </p>
+        </div>
+    </section>
+</div>
+
+<section data-ng-controller="ContactController" class="container-fluid">
+    <div class="row-fluid">
+        <div class="span6 bgcontact">
+            <div class="contact">
+                <h1>{{contact.informations.phone}}</h1>
+                <h3 class="email">{{contact.informations.email}}</h3>
+                <p><strong>Romain Poustis</strong></p>
+                <p>{{contact.informations.adresse.rue}}</p>
+                <p>{{contact.informations.adresse.code_postal}} {{contact.informations.adresse.ville}} {{contact.informations.adresse.pays}}</p>
+                <h3><a href="{{contact.cv}}" target="_blank">Télécharger mon CV</a></h3>
+            </div>
+        </div>
+        <div class="span6">
+            <label class="control-label" for="nom"></label>
+            <div class="input-prepend input-block-level input-block-with-prepend">
+                <span class="add-on">
+                    <i class="icon-user"></i>
+                </span>
+                <input class="input-block-level" id="nom" type="text" placeholder="Nom" required>
+            </div>
+            <label class="control-label" for="email"></label>
+            <div class="input-prepend input-block-level input-block-with-prepend">
+                <span class="add-on">
+                    <i class="icon-envelope"></i>
+                </span>
+                <input class="input-block-level" id="email" type="text" placeholder="Email" required>
+            </div>
+            <label class="control-label" for="message"></label>
+            <div class="input-block-level margin-textarea">
+                <textarea rows="4" class="input-block-level" id="message" placeholder="Message" required></textarea>
+            </div>
+            <label class="control-label" for="envoye"></label>
+            <button class="btn btn-block" id="envoye" type="submit"><i class="icon-ok-sign"></i> Envoyer</button>
+        </div>
+    </div>
+    <div class="social">
+        <span data-ng-repeat="social in contact.social">
+            <a href="{{social.lien}}" target="_blank">
+                <img src="{{social.picto}}" alt="{{social.name}}"/>
+            </a>
+        </span>
+    </div>
 </section>
