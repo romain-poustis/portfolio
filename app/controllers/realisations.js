@@ -83,11 +83,11 @@ exports.all = function(req, res) {
                 status: 500
             });
         } else {
-            var test = [];
+            var all = [];
             reals.map( function(e) {
-                test.push({id: e.id, imageUrl: e.images[0], name: e.titre});
+                all.push({id: e.id, imageUrl: e.images[0], name: e.titre});
             });
-            res.jsonp(test);
+            res.jsonp(all);
         }
     });
 };
