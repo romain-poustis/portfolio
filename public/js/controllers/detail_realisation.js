@@ -45,4 +45,20 @@ angular.module('mean.system')
       return indexImg !== 0;  
     };
     
+    // --------------------------- //
+    //            CRUD
+    // --------------------------- //
+    $scope.create = function() {
+        var article = new Realisation({
+            title: this.title,
+            content: this.content
+        });
+        article.$save(function(response) {
+            $location.path("articles/" + response._id);
+        });
+
+        this.title = "";
+        this.content = "";
+    }
+    
 }]);

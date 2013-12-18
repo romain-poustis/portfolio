@@ -1,0 +1,35 @@
+<section data-ng-controller="DetailRealisationController">
+    <div class="row-fluid">
+	<form class="form-horizontal" >
+		<div class="control-group">
+			<label class="control-label" for="titre">Titre</label>
+			<div class="controls">
+				<input class="span10" type="text" data-ng-model="titre" id="titre" placeholder="Titre" required>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="date">Date</label>
+			<div class="controls">
+                            <input type="date" class="span10" data-ng-model="date" id="date" required>
+			</div>
+		</div>
+                <div class="control-group">
+			<label class="control-label" for="description">Description</label>
+			<div class="controls">
+				<textarea class="span10" data-ng-model="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+			</div>
+		</div>
+                <div class="control-group">
+			<label class="control-label" for="lien">Lien</label>
+			<div class="controls">
+				<input type="text" class="span10" data-ng-model="lien" id="lien" placeholder="Lien">
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" class="btn btn-info" value="Valider">
+			</div>
+		</div>
+	</form>
+    </div>
+</section>
