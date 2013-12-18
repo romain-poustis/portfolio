@@ -20,6 +20,9 @@ angular.module('mean').config(['$routeProvider',
         when('/signin', {
             templateUrl: 'views/signin.html'
         }).
+        when('/signin/:err', {
+            templateUrl: 'views/signin.html'
+        }).        
         otherwise({
             redirectTo: '/'
         });

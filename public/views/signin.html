@@ -1,23 +1,28 @@
-<div class="modal-header">
-    <h3>Identification</h3>
-</div>
-<div class="modal-body">
-    <form class="form-horizontal" action="/users/session" method="post">
-        <div class="control-group">
-            <label class="control-label" for="email">Email</label>
-            <div class="controls">
-                <input type="text" id="email" name="email" placeholder="Email">
+<section data-ng-controller="HeaderController">
+    <div class="modal-header">
+        <div data-ng-show="hasErr" class="alert alert-error">
+            <strong>Erreur!</strong> Mauvais login ou mot de passe
+        </div>
+        <h3>Identification</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" action="/users/session" method="post">
+            <div class="control-group">
+                <label class="control-label" for="email">Email</label>
+                <div class="controls">
+                    <input type="text" id="email" name="email" placeholder="Email">
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="password">Password</label>
-            <div class="controls">
-                <input type="password" id="password" name="password" placeholder="Password">
+            <div class="control-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <button class="btn btn-primary" type="submit">OK</button>
-            <a href="/" class="btn btn-warning" >Cancel</a>
-        </div>
-    </form>
-</div>
+            <div class="control-group">
+                <button class="btn btn-primary" type="submit">OK</button>
+                <a href="/" class="btn btn-warning" >Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
