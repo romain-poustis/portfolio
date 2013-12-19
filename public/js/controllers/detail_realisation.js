@@ -1,28 +1,26 @@
 angular.module('mean.system')
-  .controller('DetailRealisationController', ['$scope', '$location','Global', 'DetailRealisation','Realisations', function ($scope, $location, Global, DetailRealisation, Realisations) {
+  .controller('DetailRealisationController', ['$scope', '$location','Global', 'Realisations', function ($scope, $location, Global, Realisations) {
+    
+    // --------------------------- //
+    //         Carroussel
+    // --------------------------- //      
     $scope.global = Global;
     var indexImg = 0;
     
-    // Par défaut on selectionne la première réal
-    var detail_realisation = DetailRealisation.query(function(data) {
-        $scope.real = data[0];
-        $scope.realImgSelected = $scope.real.images[0];
-        indexImg = 0;
-    });
-    
-    // On récupère toutes les réalisations
-    $scope.realisations =  Realisations.query();
-    
-    /**
-     * permet de choisir la real dans le scope
-     * 
-     * @param {int} index dans la liste
-     * @returns {undefined}
-     */
-    $scope.getRealisation = function(index) {
-        $scope.real = detail_realisation[index];
+    $scope.init = function() {
+        // Par défaut on selectionne la première réal
+        Realisations.get({realisationId: 1}, function(data) {
+            $scope.real = data[0];
+            $scope.realImgSelected = $scope.real.images[0];
+            indexImg = 0;
+        });
+        // Et on recupère les résumés des autres réal
+        find();
     };
     
+    // --------------------------- //
+    //         Carroussel
+    // --------------------------- //
     $scope.nextImg = function() {
         if ( indexImg !== $scope.real.images.length ) {
            indexImg = indexImg + 1;
@@ -72,6 +70,13 @@ angular.module('mean.system')
     var find = function(query) {
         Realisations.query(query, function(reals) {
             $scope.realisations = reals;
+        });
+    };
+    
+    // get one realisation
+    var findOne = function(id) {
+        Realisations.get({realisationId: id}, function(real) {
+            $scope.real = real;
         });
     };
    

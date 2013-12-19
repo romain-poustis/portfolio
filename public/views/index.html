@@ -5,25 +5,25 @@
 </section>
 
 
-<div id="myCarousel" class="carousel slide">
+<!--<div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
-  <!-- Carousel items -->
+   Carousel items 
   <div class="carousel-inner">
     <div class="active item">…</div>
     <div class="item">…</div>
     <div class="item">…</div>
   </div>
-  <!-- Carousel nav -->
+   Carousel nav 
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
+</div>-->
 
 
-<div data-ng-controller="DetailRealisationController">
+<div data-ng-controller="DetailRealisationController" data-ng-init="init()">
     <section>
         <a data-ng-show="hasPrevious()" data-ng-click="previousImg()"> <<<<<<<< </a>
         <a data-ng-show="hasNext()" data-ng-click="nextImg()"> >>>>>>>> </a>
@@ -37,7 +37,7 @@
     <section>
         <div data-ng-repeat="realisation in realisations">
             <p>
-                <img data-ng-click="getRealisation($index)" src="{{realisation.imageUrl}}" alt="{{realisation.name}}"/>
+                <img data-ng-click="findOne($index)" src="{{realisation.imageUrl}}" alt="{{realisation.name}}"/>
             </p>
         </div>
     </section>

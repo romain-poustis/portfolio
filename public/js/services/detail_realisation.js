@@ -1,5 +1,5 @@
 angular.module('mean.system').factory('Realisations', ['$resource', function($resource) {
-    return $resource('realisations/:articleId', {
+    return $resource('realisations/:realisationId', {
         articleId: '@_id'
     }, {
         update: {
