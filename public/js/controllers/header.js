@@ -7,6 +7,9 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$route'
             }, {
                 "title": "Ajouter Réalisation",
                 "link": "realisations/create"
+            }, {
+                "title": "Lister réalisations",
+                "link": "realisations/list"
             }];
 
         $scope.isCollapsed = false;

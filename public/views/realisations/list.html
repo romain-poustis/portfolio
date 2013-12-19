@@ -1,11 +1,20 @@
-<section data-ng-controller="ArticlesController" data-ng-init="find()">
-	<ul class="articles unstyled">
-		<li data-ng-repeat="article in articles">
-			<span>{{article.created | date:'medium'}}</span> /
-			<span>{{article.user.name}}</span>
-			<h2><a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h2>
-			<div>{{article.content}}</div>
-		</li>
-	</ul>
-	<h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
+<section data-ng-controller="DetailRealisationController" data-ng-init="find()">
+    <table class="table table-bordered table table-condensed">
+        <thead>
+            <tr class="tableTitle alert alert-info">
+                <th>Titre</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tr data-ng-repeat="real in realisations">
+            <td>
+                {{real.name}}
+            </td>
+            <td class="span2">
+                <a data-ng-click="destroyById(real.id)">Effacer</a> - 
+                <a data-ng-click="">Modifier</a>
+            </td>
+        </tr>
+    </table>
+    <h1 data-ng-hide="!realisations || realisations.length">Aucune réalisation !</h1>
 </section>

@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .controller('DetailRealisationController', ['$scope', '$location','Global', 'Realisations', function ($scope, $location, Global, Realisations) {
+  .controller('DetailRealisationController', ['$scope', '$location', '$route', 'Global', 'Realisations', function ($scope, $location, $route, Global, Realisations) {
     
     // --------------------------- //
     //         Carroussel
@@ -15,7 +15,7 @@ angular.module('mean.system')
             indexImg = 0;
         });
         // Et on recupère les résumés des autres réal
-        find();
+        $scope.find();
     };
     
     // --------------------------- //
@@ -56,7 +56,7 @@ angular.module('mean.system')
             description: this.real.description
         });
         article.$save(function() {
-            $location.path("/");
+            $location.path("/realisations/list");
         });
 
         // Clear the form
@@ -67,17 +67,39 @@ angular.module('mean.system')
     };
     
     // get all the realisation  
-    var find = function(query) {
+    $scope.find = function(query) {
         Realisations.query(query, function(reals) {
             $scope.realisations = reals;
         });
     };
     
     // get one realisation
-    var findOne = function(id) {
+    $scope.findOne = function(id) {
         Realisations.get({realisationId: id}, function(real) {
             $scope.real = real;
         });
     };
+    
+    // remove the real
+    $scope.destroy = function(real) {
+        real.$remove();
+        for (var i in $scope.realisations) {
+            if ($scope.realisations[i] == real) {
+                $scope.realisations.splice(i, 1)
+            }
+        }
+    };
    
+   // remove the real by id
+    $scope.destroyById = function(id) {
+        Realisations.get({realisationId: id}, function(real) {
+            real.$remove();
+            for (var i in $scope.realisations) {
+                if ($scope.realisations[i] == real) {
+                    $scope.realisations.splice(i, 1)
+                }
+            }
+            $route.reload();
+        });
+    };
 }]);

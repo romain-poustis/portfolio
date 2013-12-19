@@ -29,8 +29,8 @@ module.exports = function(app, passport, auth) {
     // Realisations CRUD
     app.post('/realisations', auth.requiresLogin, realisations.create);
     app.get('/realisations/:realisationId', realisations.show);
-    app.put('/realisations/:realisationId', auth.requiresLogin, auth.realisation.hasAuthorization, realisations.update);
-    app.del('/realisations/:realisationId', auth.requiresLogin, auth.realisation.hasAuthorization, realisations.destroy);
+    app.put('/realisations/:realisationId', auth.requiresLogin, realisations.update);
+    app.del('/realisations/:realisationId', auth.requiresLogin, realisations.destroy);
 
     // thumbnails
     app.get('/realisations', realisations.all);
