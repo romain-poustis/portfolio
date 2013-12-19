@@ -1,22 +1,32 @@
 angular.module('mean.system')
-  .controller('DetailRealisationController', ['$scope', '$location', '$route', 'Global', 'Realisations', function ($scope, $location, $route, Global, Realisations) {
+  .controller('DetailRealisationController', ['$scope', '$location', '$route', '$routeParams','Global', 'Realisations', 
+      function ($scope, $location, $route, $routeParams, Global, Realisations) {
     
     // --------------------------- //
-    //         Carroussel
+    //         General
     // --------------------------- //      
     $scope.global = Global;
     var indexImg = 0;
     
     $scope.init = function() {
+        // Et on recupère les résumés des autres réal
+        Realisations.query(query, function(reals) {
+            $scope.realisations = reals;
+        });
+        
         // Par défaut on selectionne la première réal
-        Realisations.get({realisationId: 1}, function(data) {
-            $scope.real = data[0];
-            $scope.realImgSelected = $scope.real.images[0];
+        Realisations.get({realisationId: $scope.realisations[0].id}, function(real) {
+            $scope.real = real;
+            $scope.realImgSelected = real.images[0];
             indexImg = 0;
         });
-        // Et on recupère les résumés des autres réal
-        $scope.find();
+        
     };
+    
+    $scope.initEdit = function() {
+        // On récupère la réalisation que l'on veut modifier
+        $scope.findOne( $routeParams.realisationId );
+    }
     
     // --------------------------- //
     //         Carroussel
@@ -49,21 +59,23 @@ angular.module('mean.system')
     // Create a realisation
     $scope.create = function() {
         
+        // .$$childHead à cause de l'inclusion de formReal.html
+        // qui crée un nouveau scope, c'est moche...
         var article = new Realisations({
-            titre: this.real.titre,
-            date: this.real.date,
-            lien: this.real.lien,
-            description: this.real.description
+            titre: this.$$childHead.real.titre,
+            date: this.$$childHead.real.date,
+            lien: this.$$childHead.real.lien,
+            description: this.$$childHead.real.description
         });
         article.$save(function() {
             $location.path("/realisations/list");
         });
 
         // Clear the form
-        this.real.titre = "";
-        this.real.date = "";
-        this.real.lien = "";
-        this.real.description= "";
+        this.$$childHead.real.titre = "";
+        this.$$childHead.real.date = "";
+        this.$$childHead.real.lien = "";
+        this.$$childHead.real.description= "";
     };
     
     // get all the realisation  
@@ -100,6 +112,14 @@ angular.module('mean.system')
                 }
             }
             $route.reload();
+        });
+    };
+    
+    // Update the real
+    $scope.update = function() {
+        var real = $scope.real;
+        real.$update(function() {
+            $location.path('/realisations/list');
         });
     };
 }]);

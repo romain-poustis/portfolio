@@ -8,11 +8,8 @@ angular.module('mean').config(['$routeProvider',
         when('/realisations/create', {
             templateUrl: 'views/realisations/create.html'
         }).
-        when('/articles/:articleId/edit', {
-            templateUrl: 'views/articles/edit.html'
-        }).
-        when('/articles/:articleId', {
-            templateUrl: 'views/articles/view.html'
+        when('/realisations/edit/:realisationId', {
+            templateUrl: 'views/realisations/edit.html'
         }).
         when('/', {
             templateUrl: 'views/index.html'
