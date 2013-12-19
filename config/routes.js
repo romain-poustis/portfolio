@@ -27,13 +27,13 @@ module.exports = function(app, passport, auth) {
     var realisations = require('../app/controllers/realisations');
     
     // Realisations CRUD
-    app.post('/realisation', auth.requiresLogin, realisations.create);
+    app.post('/realisations', auth.requiresLogin, realisations.create);
     app.get('/realisations/:realisationId', realisations.show);
     app.put('/realisations/:realisationId', auth.requiresLogin, auth.realisation.hasAuthorization, realisations.update);
     app.del('/realisations/:realisationId', auth.requiresLogin, auth.realisation.hasAuthorization, realisations.destroy);
 
     // thumbnails
-    app.get('/thumbnails', realisations.all);
+    app.get('/realisations', realisations.all);
 
     //Finish with setting up the realisationId param
     app.param('realisationId', realisations.realisation);

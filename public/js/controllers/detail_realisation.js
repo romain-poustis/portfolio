@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .controller('DetailRealisationController', ['$scope', 'Global', 'DetailRealisation','Realisations', function ($scope, Global, DetailRealisation, Realisations) {
+  .controller('DetailRealisationController', ['$scope', '$location','Global', 'DetailRealisation','Realisations', function ($scope, $location, Global, DetailRealisation, Realisations) {
     $scope.global = Global;
     var indexImg = 0;
     
@@ -11,7 +11,7 @@ angular.module('mean.system')
     });
     
     // On récupère toutes les réalisations
-    $scope.realisations = Realisations.query();
+    $scope.realisations =  Realisations.query();
     
     /**
      * permet de choisir la real dans le scope
@@ -48,17 +48,31 @@ angular.module('mean.system')
     // --------------------------- //
     //            CRUD
     // --------------------------- //
+    // Create a realisation
     $scope.create = function() {
-        var article = new Realisation({
-            title: this.title,
-            content: this.content
+        
+        var article = new Realisations({
+            titre: this.real.titre,
+            date: this.real.date,
+            lien: this.real.lien,
+            description: this.real.description
         });
-        article.$save(function(response) {
-            $location.path("articles/" + response._id);
+        article.$save(function() {
+            $location.path("/");
         });
 
-        this.title = "";
-        this.content = "";
+        // Clear the form
+        this.real.titre = "";
+        this.real.date = "";
+        this.real.lien = "";
+        this.real.description= "";
     };
     
+    // get all the realisation  
+    var find = function(query) {
+        Realisations.query(query, function(reals) {
+            $scope.realisations = reals;
+        });
+    };
+   
 }]);
