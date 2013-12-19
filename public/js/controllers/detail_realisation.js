@@ -59,6 +59,6 @@ angular.module('mean.system')
 
         this.title = "";
         this.content = "";
-    }
+    };
     
 }]);
