@@ -1,3 +1,6 @@
+/* --------------------------- */
+/*          Common
+/* --------------------------- */
 body {
     margin: 0;
     padding: 0;
@@ -15,6 +18,10 @@ body {
     margin-top: 50px;
     width: 100%
 }
+
+/* --------------------------- */
+/*        index.html
+/* --------------------------- */
 /*input-prepend fait dépasser le champs de 27px*/
 .input-block-with-prepend {
     padding-right: 27px
@@ -50,7 +57,16 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 21em;
-    padding-bottom: 100px
+    padding-bottom: 100px;
+}
+
+.bounce {
+    -moz-transition: top 1s;
+    -o-transition: top 1s;
+    -webkit-transition: top 1s;
+    transition: top 1s;
+    top: -10px;
+    position: relative;
 }
 
 .email {

@@ -79,8 +79,8 @@
         </div>
     </div>
     <div class="social">
-        <span data-ng-repeat="social in contact.social">
-            <a href="{{social.lien}}" target="_blank">
+        <span data-ng-repeat="social in contact.social" data-ng-mouseenter="anim='bounce'" data-ng-mouseleave="anim=''">
+            <a data-ng-class="anim" href="{{social.lien}}" target="_blank">
                 <img src="{{social.picto}}" alt="{{social.name}}"/>
             </a>
         </span>

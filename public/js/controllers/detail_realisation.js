@@ -10,23 +10,21 @@ angular.module('mean.system')
     
     $scope.init = function() {
         // Et on recupère les résumés des autres réal
-        Realisations.query(query, function(reals) {
+        Realisations.query(function(reals) {
             $scope.realisations = reals;
+            // Par défaut on selectionne la première réal
+            Realisations.get({realisationId: $scope.realisations[0].id}, function(real) {
+                $scope.real = real;
+                $scope.realImgSelected = real.images ? real.images[0] : '';
+                indexImg = 0;
+            });
         });
-        
-        // Par défaut on selectionne la première réal
-        Realisations.get({realisationId: $scope.realisations[0].id}, function(real) {
-            $scope.real = real;
-            $scope.realImgSelected = real.images[0];
-            indexImg = 0;
-        });
-        
     };
     
     $scope.initEdit = function() {
         // On récupère la réalisation que l'on veut modifier
         $scope.findOne( $routeParams.realisationId );
-    }
+    };
     
     // --------------------------- //
     //         Carroussel
@@ -39,7 +37,7 @@ angular.module('mean.system')
     };
     
     $scope.hasNext = function() {
-      return $scope.real.images.length !== 1 && indexImg !== $scope.real.images.length - 1;  
+      return $scope.real && $scope.real.images.length !== 1 && indexImg !== $scope.real.images.length - 1;  
     };
     
     $scope.previousImg = function() {
@@ -97,7 +95,7 @@ angular.module('mean.system')
         real.$remove();
         for (var i in $scope.realisations) {
             if ($scope.realisations[i] == real) {
-                $scope.realisations.splice(i, 1)
+                $scope.realisations.splice(i, 1);
             }
         }
     };
@@ -108,7 +106,7 @@ angular.module('mean.system')
             real.$remove();
             for (var i in $scope.realisations) {
                 if ($scope.realisations[i] == real) {
-                    $scope.realisations.splice(i, 1)
+                    $scope.realisations.splice(i, 1);
                 }
             }
             $route.reload();
