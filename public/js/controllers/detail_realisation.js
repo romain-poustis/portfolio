@@ -26,6 +26,18 @@ angular.module('mean.system')
         $scope.findOne( $routeParams.realisationId );
     };
     
+    $scope.addImg = function() {
+        if ( !$scope.real ) {
+            $scope.real = {};
+            $scope.real.images = [];
+        }
+        $scope.real.images.push( this.imgName );
+    }
+    
+    $scope.removeImg = function( index ) {
+        $scope.real.images.splice(index,1);
+    }
+    
     // --------------------------- //
     //         Carroussel
     // --------------------------- //
@@ -63,6 +75,7 @@ angular.module('mean.system')
             titre: this.real.titre,
             date: this.real.date,
             lien: this.real.lien,
+            images: $scope.real.images,
             description: this.real.description
         });
         article.$save(function() {

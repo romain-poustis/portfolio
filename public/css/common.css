@@ -20,6 +20,15 @@ body {
 }
 
 /* --------------------------- */
+/*        formReal.html
+/* --------------------------- */
+.thumnails img {
+    width: 20px;
+    height: 20px
+}
+
+
+/* --------------------------- */
 /*        index.html
 /* --------------------------- */
 /*input-prepend fait dépasser le champs de 27px*/

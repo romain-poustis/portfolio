@@ -38,7 +38,14 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the realisationId param
     app.param('realisationId', realisations.realisation);
 
-
+    // --------------------------- //
+    //         BInaries
+    // --------------------------- //
+    var binary = require('../app/controllers/binary');
+    
+    app.post('/upload', auth.requiresLogin, binary.upload)
+    
+    
     // --------------------------- //
     //      Home Routes
     // --------------------------- //

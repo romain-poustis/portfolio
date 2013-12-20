@@ -1,29 +1,46 @@
-<div class="control-group">
-    <label class="control-label" for="titre">Titre</label>
-    <div class="controls">
-        <input class="span10" type="text" data-ng-model="real.titre" id="titre" placeholder="Titre" required>
-    </div>
-</div>
-<div class="control-group">
-    <label class="control-label" for="date">Année</label>
-    <div class="controls">
-        <input type="text" class="span10" data-ng-model="real.date" id="date" placeholder="Année avec le format yyyy" required>
-    </div>
-</div>
-<div class="control-group">
-    <label class="control-label" for="description">Description</label>
-    <div class="controls">
-        <textarea class="span10" data-ng-model="real.description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
-    </div>
-</div>
-<div class="control-group">
-    <label class="control-label" for="lien">Lien</label>
-    <div class="controls">
-        <input type="text" class="span10" data-ng-model="real.lien" id="lien" placeholder="Lien">
-    </div>
-</div>
-<div class="control-group">
-    <div class="controls">
-        <input type="submit" class="btn btn-info" value="Valider">
-    </div>
-</div>
+<div class="row-fluid">
+    
+    <div class="span4">
+            <div class="control-group">
+                <input id="img" data-ng-model="imgName" class="span12" type="text" placeholder="Lien vers l'image à rajouter">
+                <a data-ng-click="addImg()">Add</a>
+            </div>
+            <p> {{real.images.length}} image(s)</p>
+            <span data-ng-repeat="image in real.images">
+                <img data-ng-click="removeImg($index)" class="thumnails" src="{{image}}">
+            </span>
+        </div>
+    
+    <div class="span8">
+        <div class="control-group">
+            <label class="control-label" for="titre">Titre</label>
+            <div class="controls">
+                <input class="span12"  type="text" data-ng-model="real.titre" id="titre" placeholder="Titre" required>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="date">Année</label>
+            <div class="controls">
+                <input type="text" class="span12" data-ng-model="real.date" id="date" placeholder="Année avec le format yyyy" required>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="description">Description</label>
+            <div class="controls">
+                <textarea class="span12" data-ng-model="real.description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="lien">Lien</label>
+            <div class="controls">
+                <input type="text" class="span12" data-ng-model="real.lien" id="lien" placeholder="Lien">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" class="btn btn-info" value="Valider">
+            </div>
+        </div>
+    </div>    
+</div>    
