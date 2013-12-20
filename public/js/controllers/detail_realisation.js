@@ -60,20 +60,20 @@ angular.module('mean.system')
         // .$$childHead à cause de l'inclusion de formReal.html
         // qui crée un nouveau scope, c'est moche...
         var article = new Realisations({
-            titre: this.$$childHead.real.titre,
-            date: this.$$childHead.real.date,
-            lien: this.$$childHead.real.lien,
-            description: this.$$childHead.real.description
+            titre: this.real.titre,
+            date: this.real.date,
+            lien: this.real.lien,
+            description: this.real.description
         });
         article.$save(function() {
             $location.path("/realisations/list");
         });
 
         // Clear the form
-        this.$$childHead.real.titre = "";
-        this.$$childHead.real.date = "";
-        this.$$childHead.real.lien = "";
-        this.$$childHead.real.description= "";
+        this.real.titre = "";
+        this.real.date = "";
+        this.real.lien = "";
+        this.real.description= "";
     };
     
     // get all the realisation  

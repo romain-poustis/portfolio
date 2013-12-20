@@ -12,8 +12,8 @@ var mongoose = require('mongoose'),
  */
 var RealisationSchema = new Schema({
     date: {
-        type: Date,
-        default: Date.now
+        type: String,
+        default: ''
     },
     titre: {
         type: String,
