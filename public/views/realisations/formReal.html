@@ -6,8 +6,10 @@
                 <a data-ng-click="addImg()">Add</a>
             </div>
             <p> {{real.images.length}} image(s)</p>
-            <span data-ng-repeat="image in real.images">
-                <img data-ng-click="removeImg($index)" class="thumnails" src="{{image}}">
+            <span data-ng-repeat="image in real.images" data-ng-mouseenter="imganim='thumbnails-anim'" data-ng-mouseleave="imganim=''">
+                <a class="thumbnails" data-ng-class="imganim">
+                    <img data-ng-click="removeImg($index)" src="{{image}}" title=" -> Clic to delete">
+                </a>
             </span>
         </div>
     

@@ -32,11 +32,11 @@ angular.module('mean.system')
             $scope.real.images = [];
         }
         $scope.real.images.push( this.imgName );
-    }
+    };
     
     $scope.removeImg = function( index ) {
         $scope.real.images.splice(index,1);
-    }
+    };
     
     // --------------------------- //
     //         Carroussel
