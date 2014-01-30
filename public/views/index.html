@@ -1,32 +1,36 @@
 <section data-ng-controller="IndexController">
-    <img src="/img/poustis_romain.png" alt="logo"/>
+    <img src="/img/romain_poustis.png" alt="logo"/>
     <h1>{{home.titre}}</h1>    
     <p>{{home.description}}</p>
 </section>
 
 
-<!--<div id="myCarousel" class="carousel slide">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-   Carousel items 
-  <div class="carousel-inner">
-    <div class="active item">…</div>
-    <div class="item">…</div>
-    <div class="item">…</div>
-  </div>
-   Carousel nav 
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>-->
-
-
 <div data-ng-controller="DetailRealisationController" data-ng-init="init()">
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-ng-repeat="image in real.images" data-target="#myCarousel" data-slide-to="{{$index}}" data-interval="200" data-ng-class="{active: $index===0}"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div data-ng-repeat="image in real.images" data-ng-class="{active: $index===0}" class="item">
+                <img src="{{image}}" alt="{{real.titre}}"/>
+                    <div class="carousel-caption">
+                      <h4>{{real.titre}}</h4>
+                      <p>{{real.description}}</p>
+                      <p>{{real.date}}</p>
+                    </div>                
+            </div>
+        </div>
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>
+
+
+
+<!--<div data-ng-controller="DetailRealisationController" data-ng-init="init()">
     <section>
-        <a data-ng-show="hasPrevious()" data-ng-click="previousImg()"> <<<<<<<< </a>
-        <a data-ng-show="hasNext()" data-ng-click="nextImg()"> >>>>>>>> </a>
+        <a data-ng-show="hasPrevious()" data-ng-click="previousImg()">&lsaquo;</a>
+        <a data-ng-show="hasNext()" data-ng-click="nextImg()">&rsaquo;</a>
         <h1>{{real.titre}}</h1>    
         <p>{{real.description}}</p>
         <p>{{real.date | date:'MMMM yyyy'}}</p>
@@ -41,7 +45,7 @@
             </p>
         </div>
     </section>
-</div>  
+</div>-->
 
 <section data-ng-controller="ContactController" class="container-fluid">
     <div class="row-fluid">
@@ -79,7 +83,7 @@
         </div>
     </div>
     <div class="social">
-        <span data-ng-repeat="social in contact.social" data-ng-mouseenter="anim='bounce'" data-ng-mouseleave="anim=''">
+        <span data-ng-repeat="social in contact.social" data-ng-mouseenter="anim = 'bounce'" data-ng-mouseleave="anim = ''">
             <a data-ng-class="anim" href="{{social.lien}}" target="_blank">
                 <img src="{{social.picto}}" alt="{{social.name}}"/>
             </a>
