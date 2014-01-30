@@ -1,12 +1,12 @@
 {
-  "name": "mean",
-  "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
-  "version": "0.1.2",
+  "name": "Portfolio",
+  "description": "Portfolio de Romain Poustis",
+  "version": "1.0.0",
   "private": false,
-  "author": "Amos Haviv",
+  "author": "Romain Poustis, Yannick Chartois",
   "repository": {
     "type": "git",
-    "url": "https://github.com/linnovate/mean.git"
+    "url": "https://github.com/romain-poustis/portfolio.git"
   },
   "engines": {
     "node": "0.10.x",
@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "~3.4.7",
     "jade": "~0.35.0",
+    "sendgrid": "0.4.4",
     "mongoose": "~3.8.3",
     "connect-mongo": "~0.4.0",
     "connect-flash": "~0.1.1",
@@ -34,11 +35,7 @@
     "grunt-cli": "~0.1.11",
     "grunt-env": "~0.4.1",
     "forever": "~0.10.11",
-    "should": "2.1.1",
     "grunt-concurrent": "~0.4.2",
-    "grunt-karma": "~0.6.2",
-    "supertest": "0.8.2",
-    "grunt-mocha-test": "~0.8.1",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-nodemon": "0.1.2",
     "grunt-contrib-watch": "~0.5.3"
