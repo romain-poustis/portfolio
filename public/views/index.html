@@ -6,46 +6,16 @@
 
 
 <div data-ng-controller="DetailRealisationController" data-ng-init="init()">
-    <div id="myCarousel" class="carousel slide">
-        <ol class="carousel-indicators">
-            <li data-ng-repeat="image in real.images" data-target="#myCarousel" data-slide-to="{{$index}}" data-interval="200" data-ng-class="{active: $index===0}"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div data-ng-repeat="image in real.images" data-ng-class="{active: $index===0}" class="item">
-                <img src="{{image}}" alt="{{real.titre}}"/>
-                    <div class="carousel-caption">
-                      <h4>{{real.titre}}</h4>
-                      <p>{{real.description}}</p>
-                      <p>{{real.date}}</p>
-                    </div>                
-            </div>
+    <carousel interval="3000">
+      <slide ng-repeat="slide in slides" active="slide.active" class="imgSlide">
+        <img ng-src="{{slide.image}}">
+        <div class="carousel-caption">
+          <h4>{{real.date}} - {{real.titre}}</h4>
+          <p>{{real.description}}</p>
         </div>
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
+      </slide>
+    </carousel>
 </div>
-
-
-
-<!--<div data-ng-controller="DetailRealisationController" data-ng-init="init()">
-    <section>
-        <a data-ng-show="hasPrevious()" data-ng-click="previousImg()">&lsaquo;</a>
-        <a data-ng-show="hasNext()" data-ng-click="nextImg()">&rsaquo;</a>
-        <h1>{{real.titre}}</h1>    
-        <p>{{real.description}}</p>
-        <p>{{real.date | date:'MMMM yyyy'}}</p>
-        <p><img src="{{realImgSelected}}" alt="{{real.titre}}"/></p>
-        <p>{{real.tag.name}}</p>
-    </section>
-
-    <section>
-        <div data-ng-repeat="realisation in realisations">
-            <p>
-                <img data-ng-click="findOne($index)" src="{{realisation.imageUrl}}" alt="{{realisation.name}}"/>
-            </p>
-        </div>
-    </section>
-</div>-->
 
 <section data-ng-controller="ContactController" class="container-fluid">
     <div class="row-fluid">

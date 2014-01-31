@@ -111,3 +111,8 @@ footer {
 footer p {
     padding: 5px 0 12px 10px
 }
+
+.imgSlide img {
+    margin: auto;
+    height: 600px;
+}

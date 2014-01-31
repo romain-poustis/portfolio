@@ -17,6 +17,9 @@ angular.module('mean.system')
                 $scope.real = real;
                 $scope.realImgSelected = real.images ? real.images[0] : '';
                 indexImg = 0;
+                $scope.slides = real.images.map( function( el ){
+                    return { image: el };
+                });
             });
         });
     };
