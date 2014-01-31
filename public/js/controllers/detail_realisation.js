@@ -103,6 +103,9 @@ angular.module('mean.system')
     $scope.findOne = function(id) {
         Realisations.get({realisationId: id}, function(real) {
             $scope.real = real;
+            $scope.slides = real.images.map( function( el ){
+                    return { image: el };
+                });
         });
     };
     
@@ -110,7 +113,7 @@ angular.module('mean.system')
     $scope.destroy = function(real) {
         real.$remove();
         for (var i in $scope.realisations) {
-            if ($scope.realisations[i] == real) {
+            if ($scope.realisations[i] === real) {
                 $scope.realisations.splice(i, 1);
             }
         }
@@ -121,7 +124,7 @@ angular.module('mean.system')
         Realisations.get({realisationId: id}, function(real) {
             real.$remove();
             for (var i in $scope.realisations) {
-                if ($scope.realisations[i] == real) {
+                if ($scope.realisations[i] === real) {
                     $scope.realisations.splice(i, 1);
                 }
             }

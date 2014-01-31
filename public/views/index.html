@@ -19,7 +19,7 @@
         <div class="lab_item" data-ng-repeat="realisation in realisations">
             <div class="hexagon hexagon2">
                 <div class="hexagon-in1">
-                    <div data-ng-click="findOne($index)" class="hexagon-in2" style="background-image: url({{realisation.imageUrl}});">                
+                    <div data-ng-click="findOne(realisation.id)" class="hexagon-in2" style="background-image: url({{realisation.imageUrl}});">                
                     </div>
                 </div>
             </div>
