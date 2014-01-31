@@ -7,5 +7,5 @@ angular.module('mean.system').factory('Contact', ['$resource', function($resourc
 angular.module('mean.system').factory('Mail', ['$resource', function($resource) {
     return $resource('/mail', {}, {
         create: { method: 'POST' }
-    })
+    });
 }]);
