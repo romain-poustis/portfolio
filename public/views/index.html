@@ -6,15 +6,36 @@
 
 
 <div data-ng-controller="DetailRealisationController" data-ng-init="init()">
-    <carousel interval="3000">
-      <slide ng-repeat="slide in slides" active="slide.active" class="imgSlide">
-        <img ng-src="{{slide.image}}">
-        <div class="carousel-caption">
-          <h4>{{real.date}} - {{real.titre}}</h4>
-          <p>{{real.description}}</p>
+    
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-ng-repeat="image in real.images" data-target="#myCarousel" data-slide-to="{{$index}}" data-interval="200" data-ng-class="{active: $index===0}"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div data-ng-repeat="image in real.images" data-ng-class="{active: $index===0}" class="item">
+                <img src="{{image}}" alt="{{real.titre}}" class="img-rounded"/>
+                    <div class="carousel-caption">
+                      <h4>{{real.titre}}</h4>
+                      <p>{{real.description}}</p>
+                      <p>{{real.date}}</p>
+                    </div>                
+            </div>
         </div>
-      </slide>
-    </carousel>
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+
+    <section id="lab">
+        <div class="lab_item" data-ng-repeat="realisation in realisations">		
+            <div class="hexagon hexagon2">
+                <div class="hexagon-in1">
+                    <div data-ng-click="findOne($index)" class="hexagon-in2" style="background-image: url({{realisation.imageUrl}});">                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 <section data-ng-controller="ContactController" class="container-fluid">
