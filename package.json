@@ -29,6 +29,7 @@
     "passport-local": "~0.1.6",
     "lodash": "~2.4.1",
     "view-helpers": "~0.1.4",
+    "underscore": "latest",
     "mean-logger": "0.0.1",
     "bower": "~1.2.8",
     "grunt": "~0.4.2",
