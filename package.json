@@ -39,7 +39,8 @@
     "grunt-concurrent": "~0.4.2",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-nodemon": "0.1.2",
-    "grunt-contrib-watch": "~0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
+    "cloudinary": "latest"
   },
   "devDependencies": {
     "grunt-contrib-watch": "latest",
