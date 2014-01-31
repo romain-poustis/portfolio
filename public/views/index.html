@@ -42,8 +42,9 @@
                 <h3><a href="{{contact.cv}}" target="_blank">Télécharger mon CV</a></h3>
             </div>
         </div>
-        <form class="form-horizontal" data-ng-submit="sendMail()">
-            <div class="span6">
+
+        <div class="span6">
+            <form class="form-horizontal" data-ng-submit="sendMail()">
                 <label class="control-label" for="nom"></label>
                 <div class="input-prepend input-block-level input-block-with-prepend">
                     <span class="add-on">
@@ -64,8 +65,9 @@
                 </div>
                 <label class="control-label" for="envoye"></label>
                 <button class="btn btn-block" id="envoye" type="submit"><i class="icon-ok-sign"></i> Envoyer</button>
-            </div>
-        </form>
+            </form>
+        </div>
+
     </div>
     <div class="social">
         <span data-ng-repeat="social in contact.social" data-ng-mouseenter="anim = 'bounce'" data-ng-mouseleave="anim = ''">
