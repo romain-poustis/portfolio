@@ -51,5 +51,5 @@ module.exports = function(app, passport, auth) {
     // --------------------------- //
     var index = require('../app/controllers/index');
     app.get('/', index.render);
-
+    app.post('/mail', index.sendMail );
 };
