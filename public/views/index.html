@@ -1,24 +1,24 @@
 <section data-ng-controller="IndexController">
-    <img src="/img/romain_poustis.png" alt="logo"/>
+    <img class="logo" src="/img/romain_poustis.png" alt="logo"/>
     <h1>{{home.titre}}</h1>    
     <p>{{home.description}}</p>
 </section>
 
 
 <div data-ng-controller="DetailRealisationController" data-ng-init="init()">
-    
+
     <carousel interval="3000">
-      <slide ng-repeat="slide in slides" active="slide.active" class="imgSlide">
-        <img ng-src="{{slide.image}}">
-        <div class="carousel-caption">
-          <h4>{{real.date}} - {{real.titre}}</h4>
-          <p>{{real.description}}</p>
-        </div>
-      </slide>
+        <slide ng-repeat="slide in slides" active="slide.active" class="imgSlide">
+            <img ng-src="{{slide.image}}">
+            <div class="carousel-caption">
+                <h4>{{real.date}} - {{real.titre}}</h4>
+                <p>{{real.description}}</p>
+            </div>
+        </slide>
     </carousel>
 
     <section id="lab">
-        <div class="lab_item" data-ng-repeat="realisation in realisations">		
+        <div class="lab_item" data-ng-repeat="realisation in realisations">
             <div class="hexagon hexagon2">
                 <div class="hexagon-in1">
                     <div data-ng-click="findOne($index)" class="hexagon-in2" style="background-image: url({{realisation.imageUrl}});">                
