@@ -6,13 +6,14 @@
 
 
 <div data-ng-controller="DetailRealisationController" data-ng-init="init()">
+    
     <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
             <li data-ng-repeat="image in real.images" data-target="#myCarousel" data-slide-to="{{$index}}" data-interval="200" data-ng-class="{active: $index===0}"></li>
         </ol>
         <div class="carousel-inner">
             <div data-ng-repeat="image in real.images" data-ng-class="{active: $index===0}" class="item">
-                <img src="{{image}}" alt="{{real.titre}}"/>
+                <img src="{{image}}" alt="{{real.titre}}" class="img-rounded"/>
                     <div class="carousel-caption">
                       <h4>{{real.titre}}</h4>
                       <p>{{real.description}}</p>
@@ -23,6 +24,18 @@
         <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
+
+    <section id="lab">
+        <div class="lab_item" data-ng-repeat="realisation in realisations">		
+            <div class="hexagon hexagon2">
+                <div class="hexagon-in1">
+                    <div data-ng-click="findOne($index)" class="hexagon-in2" style="background-image: url({{realisation.imageUrl}});">                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 
