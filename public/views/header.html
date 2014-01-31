@@ -1,13 +1,19 @@
 <div class="navbar-inner" data-ng-controller="HeaderController">
     <ul class="nav">
         <li>
-            <a class="brand" href="/">POUSTIS Romain</a>
+            <a class="brand" href="/">Romain Poustis</a>
         </li>
-        <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-            <a href="#!/{{item.link}}">{{item.title}}</a>
+        <li>
+            <a data-ng-click="scrollTo('reals')">Réalisations</a>
+        </li>
+        <li>
+            <a data-ng-click="scrollTo('contact')">Contact</a>
         </li>
     </ul>
     <ul class="nav pull-right">
+        <li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+            <a href="#!/{{item.link}}">{{item.title}}</a>
+        </li>
         <li class="divider-vertical"></li>
         <li data-ng-show="global.authenticated"><a href="/signout">Signout</a></li>
     </ul>
