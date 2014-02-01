@@ -15,8 +15,8 @@
         </slide>
     </carousel>
 
-    <section id="lab">
-        <div class="lab_item" data-ng-repeat="realisation in realisations">
+    <div class="row-fluid" id="lab">
+        <div class="lab_item" data-ng-repeat="realisation in realsVisible | orderBy:'date':false">
             <div class="hexagon hexagon2">
                 <div class="hexagon-in1">
                     <div data-ng-click="findOne(realisation.id)" class="hexagon-in2" style="background-image: url({{realisation.imageUrl}});">                
@@ -24,7 +24,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="row-fluid" id="lab">
+        <a data-ng-show="hasPrevious()" class="go-left"> < </a>
+        <a  class="go-right"> > </a>
+    </div>
 
 </section>
 

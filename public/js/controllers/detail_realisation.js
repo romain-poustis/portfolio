@@ -7,16 +7,16 @@ angular.module('mean.system')
     // --------------------------- //      
     $scope.global = Global;
     var indexImg = 0;
+    var limit = 17;
     
     $scope.init = function() {
         // Et on recupère les résumés des autres réal
         Realisations.query(function(reals) {
             $scope.realisations = reals;
+            $scope.realsVisible = reals.slice(0,limit);
             // Par défaut on selectionne la première réal
             Realisations.get({realisationId: $scope.realisations[0].id}, function(real) {
                 $scope.real = real;
-                $scope.realImgSelected = real.images ? real.images[0] : '';
-                indexImg = 0;
                 $scope.slides = real.images.map( function( el ){
                     return { image: el };
                 });
@@ -42,7 +42,7 @@ angular.module('mean.system')
     };
     
     // --------------------------- //
-    //         Carroussel
+    //         Realisatoins
     // --------------------------- //
     $scope.nextImg = function() {
         if ( indexImg !== $scope.real.images.length ) {
@@ -52,7 +52,7 @@ angular.module('mean.system')
     };
     
     $scope.hasNext = function() {
-      return $scope.real && $scope.real.images.length !== 1 && indexImg !== $scope.real.images.length - 1;  
+      return $scope.real && $scope.real.realisations.length >= limit &&  $scope.real.realisations.length >= limit + indexImg;  
     };
     
     $scope.previousImg = function() {
@@ -96,6 +96,7 @@ angular.module('mean.system')
     $scope.find = function(query) {
         Realisations.query(query, function(reals) {
             $scope.realisations = reals;
+            $scope.realsVisible = reals.slice(0,limit);
         });
     };
     
