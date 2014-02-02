@@ -53,6 +53,7 @@
     position: relative;
     display: inline-block;
     top: 100px;
+    margin-left: 5px;
 }
 
 .hexagon2 {
@@ -131,8 +132,8 @@
     filter: grayscale(0%);
 }
 
-.lab_item:nth-child(10n-2) {
-    margin-left: 75px;
+.lab_item:nth-child(7) {
+    margin-left: 82px;
 }
 
 .lab_item:nth-child(n) {
