@@ -44,21 +44,21 @@ angular.module('mean.system')
     // --------------------------- //
     //         Realisatoins
     // --------------------------- //
-    $scope.nextImg = function() {
-        if ( indexImg !== $scope.real.images.length ) {
-           indexImg = indexImg + 1;
-           $scope.realImgSelected = $scope.real.images[indexImg];
+    $scope.nextReal = function() {
+        if ($scope.realisations.length >= limit + indexImg ) {
+           indexImg = indexImg + limit;
+           $scope.realsVisible = $scope.realisations.slice(indexImg,indexImg + limit);
         }
     };
     
     $scope.hasNext = function() {
-      return $scope.real && $scope.real.realisations.length >= limit &&  $scope.real.realisations.length >= limit + indexImg;  
+      return $scope.real && $scope.realisations.length >= limit &&  $scope.realisations.length >= limit + indexImg;  
     };
     
-    $scope.previousImg = function() {
-        if ( indexImg !== 0 ) {
-           indexImg = indexImg - 1;
-           $scope.realImgSelected = $scope.real.images[indexImg];
+    $scope.previousReal = function() {
+        if ( indexImg >= limit ) {
+           indexImg = indexImg - limit;
+           $scope.realsVisible = $scope.realisations.slice(indexImg,indexImg + limit);
         }
     };
     
