@@ -52,7 +52,7 @@ angular.module('mean.system')
     };
     
     $scope.hasNext = function() {
-      return $scope.real && $scope.realisations.length >= limit &&  $scope.realisations.length >= limit + indexImg;  
+      return $scope.real && $scope.realisations.length > limit &&  $scope.realisations.length > limit + indexImg;  
     };
     
     $scope.previousReal = function() {
